@@ -1,0 +1,17 @@
+<h1>Notas Rápidas</h1>
+
+<form [formGroup]="notaForm" (ngSubmit)="guardar()">
+  <input type="text" formControlName="titulo" placeholder="Título" />
+  <input type="text" formControlName="contenido" placeholder="Contenido" />
+  <button type="submit" [disabled]="notaForm.invalid">Guardar</button>
+</form>
+
+<br>
+
+@for (nota of notaService.notas(); track nota._id) {
+    <h4>{{ nota.titulo }}</h4>
+    <p>{{ nota.contenido }}</p>
+
+  } @empty {
+    <p>No hay notas guardadas todavía.</p>
+}
