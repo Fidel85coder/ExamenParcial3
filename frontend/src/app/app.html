@@ -8,10 +8,12 @@
 
 <br>
 
-@for (nota of notaService.notas(); track nota._id) {
-    <h4>{{ nota.titulo }}</h4>
-    <p>{{ nota.contenido }}</p>
-
+<ul>
+  @for (nota of notaService.notas(); track nota._id) {
+    <li>
+      <strong>{{ nota.titulo }}</strong>: {{ nota.contenido }}
+    </li>
   } @empty {
     <p>No hay notas guardadas todavía.</p>
-}
+  }
+</ul>
